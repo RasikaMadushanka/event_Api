@@ -1,5 +1,6 @@
-package edu.icet.ecom.Model.Dto;
+package edu.icet.ecom.Model.Entity;
 
+import jakarta.persistence.*;
 import lombok.*;
 
 @Getter
@@ -7,13 +8,19 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class event_dto {
+@Entity
+public class event_entity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(name = "id")
     private String Id;
     private String title;
     private String description;
+    @Column(unique = true)
     private String date;
     private String location;
     private String capacity;
+    private String status;
 
     public String getId() {
         return Id;
@@ -70,8 +77,4 @@ public class event_dto {
     public void setStatus(String status) {
         this.status = status;
     }
-
-    private String status;
-
-
 }
