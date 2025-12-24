@@ -25,7 +25,7 @@ public class event_Service {
     }
 
     public event_dto updateevent(String id, event_dto event) {
-        // Check if event exists
+
         event_entity existingEvent = eventRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(
                         HttpStatus.NOT_FOUND, "Event not found with ID: " + id));
